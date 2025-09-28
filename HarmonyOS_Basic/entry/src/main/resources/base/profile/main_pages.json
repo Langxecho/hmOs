@@ -1,5 +1,11 @@
 {
   "src": [
-    "pages/LoginPage"
+    "pages/LoginPage",
+    "pages/ComponentsPage",
+    "pages/animation/AnimationDemo1",
+    "pages/animation/AnimationDemo2",
+    "pages/animation/Page1",
+    "pages/animation/Page2",
+    "pages/animation/ProductList"
   ]
 }

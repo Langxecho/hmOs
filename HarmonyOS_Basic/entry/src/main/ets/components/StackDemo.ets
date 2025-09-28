@@ -1,11 +1,11 @@
 @Component
 export struct StackDemo {
   @State hasNewMsg: boolean = true
-  @Prop avatarUrl: string = 'https://class-practice.oss-cn-nanjing.aliyuncs.com/notesApp/%E6%88%98%E4%BA%89.jpg'
+  @Prop avatarUrl: string = 'https://file.icve.com.cn/file_doc/686/798/ABAC7BB405868F3B6F7C07F29DE7166C.png'
   @Prop username: string = '张三'
   build() {
       Stack({alignContent: Alignment.TopEnd }){
-        Image(this.avatarUrl || $r('app.media.Yukari'))
+        Image(this.avatarUrl)
           .width(60)
           .height(60)
           .borderRadius(30)

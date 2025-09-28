@@ -14,22 +14,51 @@ export struct GridDemo{
     Grid(){
       ForEach(this.assignments,(assignment: Assignment) => {
         GridItem(){
-          Column({space: 12}){
-            Text(assignment.title).fontSize(26)
+          Column({space: 8}){
+            Text(assignment.title)
+              .fontSize(16)
+              .fontWeight(FontWeight.Bold)
+              .fontColor('#2C3E50')
+              .textAlign(TextAlign.Center)
+              .maxLines(2)
+              .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-            Text(this.getIconByStatus(assignment.status)).fontSize(24)
-            Text(assignment.status).fontColor(this.getColorByStatus(assignment.status)).fontSize(24)
+            Text(this.getIconByStatus(assignment.status))
+              .fontSize(20)
+              .textAlign(TextAlign.Center)
+            
+            Text(this.getStatusText(assignment.status))
+              .fontSize(12)
+              .fontColor(this.getColorByStatus(assignment.status))
+              .fontWeight(FontWeight.Medium)
+              .textAlign(TextAlign.Center)
 
-            Text(assignment.deadline).fontSize(12)
+            Text(assignment.deadline)
+              .fontSize(11)
+              .fontColor('#95A5A6')
+              .textAlign(TextAlign.Center)
           }
+          .width('100%')
+          .height(120)
+          .padding(12)
+          .backgroundColor('#FFFFFF')
+          .borderRadius(8)
+          .shadow({
+            radius: 4,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 2
+          })
         }
       })
-    }.columnsTemplate('1fr 1fr')
+    }
+    .columnsTemplate('1fr 1fr')
     .rowsTemplate('auto auto auto')
-    .columnsGap(16)
-    .rowsGap(16)
+    .columnsGap(12)
+    .rowsGap(12)
     .width('100%')
-    .padding(16)
+    .height(400)
+    .padding(4)
   }
 
   getIconByStatus(status: string):string {
@@ -48,13 +77,26 @@ export struct GridDemo{
   getColorByStatus(status: string):string {
     switch (status){
       case 'completed':
-        return '#FF9800'; // 已完成
+        return '#27AE60'; // 已完成
       case 'pending':
-        return '#4CAF50'; // 待完成
+        return '#F39C12'; // 待完成
       case 'overdue':
-        return '#FF5722'; // 已逾期
+        return '#E74C3C'; // 已逾期
       default:
-        return '#CCCCCC';
+        return '#95A5A6';
+    }
+  }
+
+  getStatusText(status: string):string {
+    switch (status){
+      case 'completed':
+        return '已完成';
+      case 'pending':
+        return '待完成';
+      case 'overdue':
+        return '已逾期';
+      default:
+        return '未知';
     }
   }
 }

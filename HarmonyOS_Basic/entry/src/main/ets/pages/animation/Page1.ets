@@ -8,7 +8,7 @@ struct Page1 {
     Column() {
       Button("去页面2").onClick(() => {
         this.getUIContext().getRouter().pushUrl({
-          url: "pages/Page2"
+          url: "pages/animation/Page2"
         })
       })
         .width(200)
